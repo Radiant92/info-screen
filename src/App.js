@@ -3,6 +3,7 @@ import './App.css';
 import jsonData from './data/meetings.json';
 import Background from './components/Background'
 import Sidebar from './components/Sidebar'
+import backroundImage from './images/bg-image.jpg';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
     }
   }
   // fills the timeline with events
+  //MUISTA POISTAA TURHAT
   const begin = () => {
     for (let i = 0; i < bookings.length; i++) {
       let obj = bookings[i]
@@ -48,7 +50,9 @@ function App() {
         time.Subject = obj.Subject
         time.Organizer = obj.Organizer
         time.EndTime = obj.EndTime
-        time.Participants = obj.Participants
+        if (obj.Participants !== null) {
+          time.Participants = obj.Participants
+        }
         time.Description = obj.Description
         events.push(time)
       }
@@ -61,9 +65,16 @@ function App() {
 
   return (
     <div>
-      <Background eventList={events} />
-      <Sidebar times={times} />
-    </div >
+      <div className="background">
+        <img className="background" src={backroundImage} alt=""></img>
+      </div>
+      <div className="center">
+        <Background eventList={events} />
+      </div >
+      <div className="rigthSide">
+        <Sidebar times={times} />
+      </div>
+    </div>
   );
 }
 

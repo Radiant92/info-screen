@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react'
-import backroundImage from '../images/bg-image.jpg';
 
 const Background = ({ eventList }) => {
     const [upcomingEvents, setUpcomingEvents] = useState(eventList)
-    // const [currentEvent, setCurrentEvent] = useState(null)
     const [roomInUse, setRoomInUse] = useState(false)
     const [firstTime, setFirstTime] = useState(0)
     const currentEvent = useRef()
@@ -12,13 +10,8 @@ const Background = ({ eventList }) => {
         list.shift()
         setUpcomingEvents(list)
     }
-    const updateUpComingEvents = (list) => {
-        setUpcomingEvents(list)
-    }
     const updateCurrentEvent = (event) => {
-        // setCurrentEvent(event)
         currentEvent.current = event
-        console.log(currentEvent.current)
     }
     const updateRoomInUse = (inUse) => {
         setRoomInUse(inUse)
@@ -27,6 +20,7 @@ const Background = ({ eventList }) => {
     const beginTimer = (event) => {
         updateCurrentEvent(event)
         updateRoomInUse(true)
+        removeUpComingEvents(upcomingEvents)
         let timeLeft = new Date(event.EndTime) - new Date()
         if (timeLeft > 0) {
             setTimeout(function () { endTimer() }, timeLeft)
@@ -39,7 +33,6 @@ const Background = ({ eventList }) => {
         updateRoomInUse(false)
         if (upcomingEvents.length > 0) {
             let nextEvent = upcomingEvents[0];
-            removeUpComingEvents(upcomingEvents)
             let timeLeft = new Date(nextEvent.id) - new Date()
             if (timeLeft > 0) {
                 setTimeout(function () { beginTimer(nextEvent) }, timeLeft)
@@ -54,20 +47,21 @@ const Background = ({ eventList }) => {
     }
 
     return (
-        <div className="App">
-            <img src={backroundImage} className="App-backround" alt="backround" />
+        <div>
             <div className="a">
-                <h1>current meeting</h1>
-                {roomInUse && < h1 > {currentEvent.current.Subject} </h1>}
-                <ul>
-                    {upcomingEvents.map(item => (
-                        <div>
-                            <p>{item.Subject}</p>
-                        </div>
+                <div>
+                    <p className="currentMeeting">CURRENT MEETING</p>
+                    {roomInUse && < h1 className="currentMeeting" > {currentEvent.current.Subject} </h1>}
+                    {roomInUse && <p className="time">{new Date(currentEvent.current.id).toString().substring(15, 21)}{new Date(currentEvent.current.EndTime).toString().substring(15, 21)}</p>}
+                    {roomInUse && <p className="currentMeeting">{currentEvent.current.Organizer}</p>}
+                </div>
+            </div>
+            <div className="bottomCenter">
+                <div className="gridContainer">
+                    {upcomingEvents.map(event => (
+                        <button className="item">{event.Subject}</button>
                     ))}
-                </ul>
-                <p>{upcomingEvents.length}</p>
-
+                </div>
             </div>
         </div>
     )
