@@ -4,7 +4,9 @@ const Background = ({ eventList }) => {
     const [upcomingEvents, setUpcomingEvents] = useState(eventList)
     const [roomInUse, setRoomInUse] = useState(false)
     const [firstTime, setFirstTime] = useState(0)
+    const [updateRender, setUpdateRender] = useState(0)
     const currentEvent = useRef()
+    const currentPercentage = useRef()
 
     const removeUpComingEvents = (list) => {
         list.shift()
@@ -19,8 +21,11 @@ const Background = ({ eventList }) => {
 
     const beginTimer = (event) => {
         updateCurrentEvent(event)
-        updateRoomInUse(true)
+        updateTimeLeft()
         removeUpComingEvents(upcomingEvents)
+        updateRoomInUse(true)
+
+
         let timeLeft = new Date(event.EndTime) - new Date()
         if (timeLeft > 0) {
             setTimeout(function () { endTimer() }, timeLeft)
@@ -41,10 +46,26 @@ const Background = ({ eventList }) => {
             }
         }
     }
+    const updateTimeLeft = () => {
+        let totalTime = new Date(currentEvent.current.EndTime) - new Date(currentEvent.current.id)
+        let time = new Date() - new Date(currentEvent.current.id)
+        let percentage = 100;
+        if ((totalTime > 0 && time > 0) && time < totalTime) {
+            percentage = (time / totalTime) * 100
+        }
+        if (percentage >= 0 && percentage < 100) {
+            let timeLeftTimer = setTimeout(function () { updateTimeLeft() }, 60000)
+            setUpdateRender(percentage)
+        }
+        percentage = percentage.toFixed()
+        currentPercentage.current = percentage + "%"
+    }
+
     if (firstTime === 0) {
         setFirstTime(1)
         endTimer()
     }
+
 
     return (
         <div>
@@ -52,8 +73,16 @@ const Background = ({ eventList }) => {
                 <div>
                     <p className="currentMeeting">CURRENT MEETING</p>
                     {roomInUse && < h1 className="currentMeeting" > {currentEvent.current.Subject} </h1>}
-                    {roomInUse && <p className="time">{new Date(currentEvent.current.id).toString().substring(15, 21)}{new Date(currentEvent.current.EndTime).toString().substring(15, 21)}</p>}
+                    {roomInUse &&
+                        <div className="timeAndBar"><p className="time">{new Date(currentEvent.current.id).toString().substring(15, 21)} </p>
+                            <div className="bar">
+                                <span className="bar" style={{ width: currentPercentage.current }}> </span>
+                            </div>
+                            <p className="time">{new Date(currentEvent.current.EndTime).toString().substring(15, 21)}</p>
+                        </div>}
+
                     {roomInUse && <p className="currentMeeting">{currentEvent.current.Organizer}</p>}
+
                 </div>
             </div>
             <div className="bottomCenter">
@@ -63,7 +92,7 @@ const Background = ({ eventList }) => {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

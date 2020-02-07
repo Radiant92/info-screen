@@ -5,29 +5,8 @@
     position: absolute;
     text-align: center;
     width: 68%;
-    top: 25%;
+    top: 17%;
     color: white;
-  }
-
-  button.buttonBox {
-    background-color: white;
-    float: right;
-    width: 70%;
-    height: 70px;
-    text-align: center;
-    border-width: thin;
-    
-    margin-bottom: 0;
-    border-left: 3px yellow;
-  }
-  button.buttonBackBox {
-    background-color: yellow;
-    padding: auto;
-    min-width: 150px;
-    min-height: 30px;
-    text-align: center;
-    box-shadow: darkgray;
-    
   }
   p.organizerName{
     font-weight: lighter;
@@ -36,33 +15,16 @@
     text-align: center;
     font-weight: 900;
   }
-  p.roomName{
-    text-align: center;
-    font-weight: lighter;
-    color: gray;
-  }
+
   p.currentMeeting{
     font-stretch: 130%;
     font-weight: 100;
   }
-  p.time{
-  height: 70px;
-  }
+
   h1.currentMeeting{
-    font-size: 250%;
-  }
-  
-  .sidebar {
-    float: right;
-    width:32%;
-    position: fixed;
-    background-color: white;
-    overflow-y: scroll;
-    top: 0;
-    bottom: 0;
-  }
-  .sidebar::-webkit-scrollbar{
-    display: none; 
+    font-size: 300%;
+    font-weight: bold;
+    font-family: Arial;
   }
 
   /* Details */
@@ -74,13 +36,13 @@
     width: auto;
     
   }
-
   .descriptionIcon{
     width: 15px;
     height: 15px;
     display: inline-block;
   }
 
+  /*BACKGROUND*/
   .background{
     position: absolute;
     top: 0;
@@ -89,69 +51,159 @@
     left: 0;
     width: 100%;
     height: 100%;
-    
   }
 
-  .center{
+  /*PARTITIONING*/
+  div.center{
     width: 68%;
     float: left;
   }
-  .rigthSide{
+  div.rigthSide{
     width: 32%;
     float: right;
   }
+
   .bottomCenter{
   position: fixed;
   bottom: 10%;
   overflow: hidden;
   
   }
-
-
   .item:hover{
     background: rgb(73, 71, 71);
   }
-  .line{
-    width: 100%;
-    border-bottom: 1px black;
-    position: absolute;
-  }
 
+  /*BOTTOM GRID*/
   .gridContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     padding: 20px;
     height: 100px;
-  
     max-width: 100%;
 
   }
-
   .item{
     grid-row-start: 1;
     grid-row-end: 3; 
     color: white;
     background: rgb(73, 71, 71,0.4);
     border: none;
-
+  }
+  .item:hover{
+    background: rgb(73, 71, 71);
   }
 
-/*dropdown*/
-.dropdownButton {
+/*DROPDOWN*/
+button.dropdownButton {
   padding: 10px;
   border: none;
+  width: 100%;
 cursor: pointer;
 }
 
-.dropdown{
+div.dropdown{
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 .dropdownContent{
   display: none;
   position: absolute;
-  z-index: 1;
+}
+p.dropContent{
+  display: block;
 }
 
 
+
+
+/*PROGRESSION BAR*/
+span.bar{
+  display: inline-block;
+  height: 10px;
+  border-radius: 25px;
+  padding: 2px;
+  background-color: rgb(233, 193, 15);
+  overflow: hidden;
+  float: left;
+}
+div.bar{
+  display: inline-block;
+  width: 30%;
+}
+div.timesAndBar{
+  display: inline-block;
+  width: 100%;
+}
+p.time{
+  display: inline-block;
+  padding: 5px;
+}
+
+
+/*SIDEBAR*/
+div.sidebar {
+  float: right;
+  width:32%;
+  position: fixed;
+  background-color: white;
+}
+div.sidebar-opened{
+  float: right;
+  width:32%;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+}
+  p.roomName{
+    text-align: left;
+    font-weight: lighter;
+    font-size: 150%;
+    padding: 20px;
+    color: rgb(105, 104, 104);
+  }
+  h2.monthToday{
+    padding: 20px;
+  }
+
+/*GET BACK FROM EVENT VIEW*/
+button.buttonBackBox {
+    background-color: rgb(245, 207, 38);
+    padding: auto;
+    min-width: 150px;
+    width: 100%;
+    min-height: 60px;
+    border: none;
+    text-align: center;
+    
+}
+/*SIDEBAR EVENT BUTTONS*/
+div.buttonsAndTimes{
+ position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+  display: inline-block;
+  top: 30%;
+  bottom: 0;
+  background-color: white;
+}
+.buttonsAndTimes::-webkit-scrollbar{
+  display: none; 
+}
+
+
+button.buttonBox {
+  background-color: white;
+  width: 20%;
+  text-align: center;
+  border-width: thin;
+  display: inline-block;
+  min-height: 40px;
+  max-height: 100%;
+}
+p.eventTime{
+  display: inline-block;
+  padding-right: 30px;
+}
