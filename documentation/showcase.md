@@ -1,5 +1,5 @@
 ## MAIN SCREEN
-The main screen shows the current ongoing reservation with a yellow progress bar and beneath it a row of upcoming reservations.
+The main screen shows the current ongoing reservation with a yellow progress bar which updates at 1min intervals and beneath it a row of upcoming reservations.
 On the right side panel you see the current date and a scrollable timetable with reservations as buttons.
 Also you can see that the cursor is hovering and highlighting one of the bottom cards on the main view.
 
