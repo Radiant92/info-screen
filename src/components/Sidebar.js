@@ -67,7 +67,7 @@ const Sidebar = ({ times }) => {
                         <div className="alignIcon">
                             <img src={descriptionIcon} alt=""></img><h2>DESCRIPTION</h2>
                         </div>
-                        <p>{sidebar.Description}</p>
+                        <p className="description">{sidebar.Description}</p>
                     </div>
                 </div>
             }

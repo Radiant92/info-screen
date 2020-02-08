@@ -17,9 +17,9 @@ const Dropdown = ({ participants }) => {
             </button>
             {open && <div>
                 {participants.map(person => (
-                    <div>
-                        <p>{person.Name}</p>
-                        <p>{person.Title}</p>
+                    <div className="nameAndTitle">
+                        <p className="dropName">{person.Name}</p>
+                        <p className="dropTitle">{person.Title}</p>
                     </div>
                 ))}
             </div>}

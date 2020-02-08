@@ -13,7 +13,7 @@
     font-weight: lighter;
   }
   p.subjectName{
-    text-align: center;
+    text-align: left;
     font-weight: 900;
   }
 
@@ -42,6 +42,10 @@
     width: 15px;
     height: 15px;
     display: inline-block;
+  }
+
+  p.description{
+    margin-left: 40px;
   }
 
   /*BACKGROUND*/
@@ -83,7 +87,6 @@
     padding: 20px;
     height: 100px;
     max-width: 100%;
-
   }
   .item{
     grid-row-start: 1;
@@ -91,17 +94,32 @@
     color: white;
     background: rgb(73, 71, 71,0.4);
     border: none;
+    
   }
   .item:hover{
     background: rgb(73, 71, 71);
   }
-
+  p.gridTime{
+    color: rgb(161, 156, 156);
+    text-align: left;
+    padding-left: 10px;
+  }
+  p.gridSubject{
+    font-weight: 800;
+    text-align: left;
+    padding-left: 10px;
+  }
+  p.gridOrganizer{
+    color: rgb(161, 156, 156);
+    text-align: left;
+    padding-left: 10px;
+  }
 /*DROPDOWN*/
 button.dropdownButton {
   padding: 10px;
   border: none;
   width: 100%;
-cursor: pointer;
+  cursor: pointer;
 }
 
 div.dropdown{
@@ -115,6 +133,18 @@ div.dropdown{
 }
 p.dropContent{
   display: block;
+}
+div.nameAndTitle{
+  margin-left: 40px;
+  
+}
+p.dropTitle{
+  font-size: 75%;
+  line-height: 5%;
+}
+p.dropName{
+  font-size: 120%;
+  
 }
 
 
@@ -179,6 +209,8 @@ button.buttonBackBox {
     min-height: 60px;
     border: none;
     text-align: center;
+    font-weight: 600;
+    font-size: 120%;
     
 }
 /*SIDEBAR EVENT BUTTONS*/
@@ -198,7 +230,8 @@ div.buttonsAndTimes{
 button.buttonBox {
   background-color: white;
   width: 20%;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
   border-width: thin;
   display: inline-block;
   min-height: 40px;

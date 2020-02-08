@@ -88,7 +88,11 @@ const Background = ({ eventList }) => {
             <div className="bottomCenter">
                 <div className="gridContainer">
                     {upcomingEvents.map(event => (
-                        <button className="item">{event.Subject}</button>
+                        <button className="item">
+                            <p className="gridTime">{event.id.substring(11, 16)}-{event.EndTime.substring(11, 16)}</p>
+                            <p className="gridSubject">{event.Subject}</p>
+                            <p className="gridOrganizer">{event.Organizer}</p>
+                        </button>
                     ))}
                 </div>
             </div>
