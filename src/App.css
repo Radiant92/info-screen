@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -24,7 +25,8 @@
   h1.currentMeeting{
     font-size: 300%;
     font-weight: bold;
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif;
+    
   }
 
   /* Details */
@@ -124,7 +126,7 @@ span.bar{
   height: 10px;
   border-radius: 25px;
   padding: 2px;
-  background-color: rgb(233, 193, 15);
+  background-color: #fc0;
   overflow: hidden;
   float: left;
 }
@@ -170,7 +172,7 @@ div.sidebar-opened{
 
 /*GET BACK FROM EVENT VIEW*/
 button.buttonBackBox {
-    background-color: rgb(245, 207, 38);
+    background-color: #fc0;
     padding: auto;
     min-width: 150px;
     width: 100%;
@@ -192,7 +194,6 @@ div.buttonsAndTimes{
 .buttonsAndTimes::-webkit-scrollbar{
   display: none; 
 }
-
 
 button.buttonBox {
   background-color: white;
