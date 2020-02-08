@@ -1,6 +1,10 @@
-# INFOSCREEN APPLICATION FOR MEETING ROOM DOORWAYS
+## INFOSCREEN APPLICATION FOR MEETING ROOM DOORWAYS
 
-## Description
+### LINKS
+
+[Preview](https://github.com/Radiant92/info-screen/blob/master/documentation/showcase.md)
+
+### Description
 Job application assignment where i was asked to make an application based on a mock image.
 The application is fully front-end and can only read json-data.
 When initiated the app will read the json-data file and present a daily schedule on the screen.
