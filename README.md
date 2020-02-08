@@ -1,3 +1,39 @@
+# INFOSCREEN APPLICATION FOR MEETING ROOM DOORWAYS
+
+## Description
+Job application assignment where i was asked to make an application based on a mock image.
+The application is fully front-end and can only read json-data.
+When initiated the app will read the json-data file and present a daily schedule on the screen.
+The view consist of a side panel filled with a list of buttons witch open a secondary side panel presenting that event information.
+The center of the window always shows the current event, a progression bar and the next upcoming reservations.
+
+### Requirements
+The app must be able to read json-data, the app must work in mobile, the app can have backend but is not required.
+
+### What could be done
+
+##### Testing
+The app need tests to ensure all the setTimeouts work as intended and not to mention what would happen if the app would be fed with bad data.
+
+##### Data validation
+Currently there is no validation for bad data such as times that cross each other or what if a reservation doesn't have a subject.
+
+##### Back-end
+If the app would ever use a database it could use a back-end to handle the data.
+
+##### Admin view
+Control panel or admin view for editing, supervision and statistics.
+
+##### Deployment
+Heroku and a database would be nice.
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
